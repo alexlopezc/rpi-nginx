@@ -7,7 +7,7 @@
 
 ### How to use this image
 * ``` docker pull tobi312/rpi-nginx ```
-* Optional: ``` mkdir -p /home/pi/{.ssl,html} && mkdir -p /home/pi/.config/nginx && cp default.conf /home/pi/.config/nginx/ ```
+* Optional: ``` mkdir -p /home/pi/{.ssl,html} && mkdir -p /home/pi/.config/nginx && touch /home/pi/.config/nginx/default.conf ```
 * Optional (SSL): 
 	* ``` openssl genrsa -out ssl.key 4096 ```
 	* ``` openssl req -new -key ssl.key -out ssl.csr ```
@@ -17,7 +17,7 @@
 
 or build it yourself
 * ``` git clone https://github.com/TobiasH87Docker/rpi-nginx.git && cd rpi-nginx ```
-* Optional: ``` mkdir -p /home/pi/{.ssl,html} && mkdir -p /home/pi/.config/nginx && cp default.conf /home/pi/.config/nginx/ ```
+* Optional: ``` mkdir -p /home/pi/{.ssl,html} && mkdir -p /home/pi/.config/nginx && touch /home/pi/.config/nginx/default.conf ```
 * Optional (SSL)
 * ``` docker build -t tobi312/rpi-nginx . ``` 
 * ``` docker run --name nginx-proxy -d -p 80:80 -p 443:443 --link some-container:alias -v /home/pi/.ssl:/etc/nginx/ssl:ro -v /home/pi/.config/nginx:/etc/nginx/conf.d:ro -v /home/pi/html:/var/www/html tobi312/rpi-nginx ``` 
