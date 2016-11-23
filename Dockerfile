@@ -1,4 +1,7 @@
-FROM resin/rpi-raspbian:latest
+#FROM resin/rpi-raspbian:latest
+FROM jsurf/rpi-raspbian:latest
+
+RUN [ "cross-build-start" ]
 
 MAINTAINER Tobias Hargesheimer <docker@ison.ws>
 
@@ -12,6 +15,8 @@ RUN apt-get update \
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
+RUN [ "cross-build-end" ]
+	
 EXPOSE 80 443
 
 CMD ["nginx", "-g", "daemon off;"]
