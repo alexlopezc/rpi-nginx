@@ -23,9 +23,9 @@ Nginx (pronounced "engine-x") is an open source reverse proxy server for HTTP, H
 
 or build it yourself
 * ``` $ git clone https://github.com/TobiasH87Docker/rpi-nginx.git && cd rpi-nginx ```
+* ``` $ docker build -t tobi312/rpi-nginx ./VERSION/ ``` 
 * Optional: ``` $  mkdir -p /home/pi/{.ssl,html} && mkdir -p /home/pi/.config/nginx && touch /home/pi/.config/nginx/default.conf ``` and edit [default.conf](https://github.com/TobiasH87Docker/rpi-nginx/blob/master/default.conf)
 * Optional (SSL)
-* ``` $ docker build -t tobi312/rpi-nginx ./VERSION/ ``` 
 * ``` $ docker run --name nginx -d -p 80:80 -p 443:443 --link some-php-fpm-container:phphost -v /home/pi/.ssl:/etc/nginx/ssl:ro -v /home/pi/.config/nginx:/etc/nginx/conf.d:ro -v /home/pi/html:/var/www/html tobi312/rpi-nginx ``` 
 
 * http://localhost or https://localhost
