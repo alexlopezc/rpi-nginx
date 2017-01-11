@@ -5,7 +5,7 @@ MAINTAINER Tobias Hargesheimer <docker@ison.ws>
 
 RUN [ "cross-build-start" ]
 
-ENV NGINX_VERSION 1.10.2-2
+ENV NGINX_VERSION 1.10.*
 
 RUN echo "deb http://mirrordirector.raspbian.org/raspbian/ stretch main contrib non-free rpi" >> /etc/apt/sources.list.d/stretch.list && echo 'Package: *\n\
 Pin: release n=stretch\n\
