@@ -5,7 +5,7 @@ RUN [ "cross-build-start" ]
 
 MAINTAINER Tobias Hargesheimer <docker@ison.ws>
 
-ENV NGINX_VERSION 1.6.2-5+deb8u4
+ENV NGINX_VERSION 1.6.*
 
 RUN apt-get update \
 	&& apt-get install -y ca-certificates nginx=${NGINX_VERSION} \
