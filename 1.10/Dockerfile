@@ -1,19 +1,14 @@
-#FROM resin/rpi-raspbian:latest
-FROM jsurf/rpi-raspbian:latest
-
-MAINTAINER Tobias Hargesheimer <docker@ison.ws>
+#FROM resin/rpi-raspbian:stretch
+FROM jsurf/rpi-raspbian:stretch
 
 RUN [ "cross-build-start" ]
 
+MAINTAINER Tobias Hargesheimer <docker@ison.ws>
+
 ENV NGINX_VERSION 1.10.*
 
-RUN echo "deb http://mirrordirector.raspbian.org/raspbian/ stretch main contrib non-free rpi" >> /etc/apt/sources.list.d/stretch.list && echo 'Package: *\n\
-Pin: release n=stretch\n\
-Pin-Priority: 400\n'\
->> /etc/apt/preferences.d/stretch-pinning
-
 RUN apt-get update \
-	&& apt-get install -y -t stretch ca-certificates nginx=${NGINX_VERSION} \
+	&& apt-get install -y ca-certificates nginx=${NGINX_VERSION} \
 	&& rm -rf /var/lib/apt/lists/*
 
 # forward request and error logs to docker log collector
