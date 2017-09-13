@@ -1,5 +1,4 @@
-#FROM resin/rpi-raspbian:jessie
-FROM jsurf/rpi-raspbian:jessie
+FROM resin/rpi-raspbian:jessie
 
 RUN [ "cross-build-start" ]
 
