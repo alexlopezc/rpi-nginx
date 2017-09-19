@@ -8,7 +8,8 @@ ENV NGINX_VERSION 1.12
 
 #RUN apk add --update nginx>${NGINX_VERSION} && rm -rf /var/cache/apk/* \
 RUN apk --no-cache add nginx>${NGINX_VERSION} \
-	&& mkdir -p /run/nginx
+	&& mkdir -p /run/nginx \
+	&& sed -i "s/ssl_session_cache shared:SSL:2m;/#ssl_session_cache shared:SSL:2m;/g" /etc/nginx/nginx.conf
 
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
