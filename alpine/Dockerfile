@@ -17,8 +17,6 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 # fix: *** stack smashing detected ***: nginx: worker process terminated / [alert] 9#9: worker process *process-id* exited on signal 6
 #RUN sed -i "s/worker_processes auto;/worker_processes 1;/g" /etc/nginx/nginx.conf
 
-RUN mkdir -p /run/nginx
-
 RUN [ "cross-build-end" ]
 	
 EXPOSE 80 443
