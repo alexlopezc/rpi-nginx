@@ -31,6 +31,7 @@ RUN set -x \
 		nginx-module-xslt=${NGINX_VERSION} \
 		nginx-module-geoip=${NGINX_VERSION} \
 		nginx-module-image-filter=${NGINX_VERSION} \
+		#nginx-module-perl=${NGINX_VERSION} \
 		nginx-module-njs=${NJS_VERSION} \
 	" \
 	&& case "$dpkgArch" in \
