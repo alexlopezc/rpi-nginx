@@ -1,10 +1,10 @@
-FROM resin/raspberry-pi-alpine:3.6
+FROM resin/raspberry-pi-alpine:3.8
 
 RUN [ "cross-build-start" ]
 
 MAINTAINER Tobias Hargesheimer <docker@ison.ws>
 
-ENV NGINX_VERSION 1.12
+ENV NGINX_VERSION 1.14
 
 #RUN apk add --update nginx>${NGINX_VERSION} && rm -rf /var/cache/apk/* \
 RUN apk --no-cache add nginx>${NGINX_VERSION} \
